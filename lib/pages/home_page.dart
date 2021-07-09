@@ -16,7 +16,8 @@ class HomePage extends StatelessWidget {
           child: Text("Welcome $name to the $days days of the flutter coding"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(), // drawer is similar to footer
     );
   }
 }
+
