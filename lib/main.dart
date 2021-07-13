@@ -3,6 +3,8 @@ import 'package:second_app/pages/home_page.dart';
 import 'package:second_app/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:second_app/utils/routes.dart';
+import 'package:second_app/widgets/themes.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,15 +25,10 @@ class MyApp extends StatelessWidget {
       // home: HomePage(), is commented because the routes with homeentry is being made// class is called not the function
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: ThemeData(primarySwatch: Colors.deepOrange),
-      darkTheme: ThemeData( 
-          brightness: Brightness.dark,
-          primarySwatch: Colors.red,
-          fontFamily: GoogleFonts.lato().fontFamily,
-          primaryTextTheme: GoogleFonts.latoTextTheme()),
-      initialRoute:
-              MyRoutes.homeRoute,
-          //"/login", // home is opened instead of loginpage due to use of initialRoute
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      initialRoute: MyRoutes.homeRoute,
+      //"/login", // home is opened instead of loginpage due to use of initialRoute
       routes: {
         "/": (context) => LoginPage(), // slash / itself is a home entry
         // this is object new LoginPage() also works
