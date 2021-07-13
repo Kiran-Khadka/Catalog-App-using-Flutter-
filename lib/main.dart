@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   // const pi = 3.14; // constant value cannot be modified or changed
   // final      // final can be modified
   // widget is a kind of component
-  // function is outside of class whereas method is the function inside class
+  // function is outside of class whereas method is the fu~nction inside class
 
   @override // completion of the task
   Widget build(BuildContext context) {
@@ -24,13 +24,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(primarySwatch: Colors.deepOrange),
-      darkTheme: ThemeData(
+      darkTheme: ThemeData( 
           brightness: Brightness.dark,
           primarySwatch: Colors.red,
           fontFamily: GoogleFonts.lato().fontFamily,
           primaryTextTheme: GoogleFonts.latoTextTheme()),
       initialRoute:
-          "/login", // home is opened instead of loginpage due to use of initialRoute
+              MyRoutes.homeRoute,
+          //"/login", // home is opened instead of loginpage due to use of initialRoute
       routes: {
         "/": (context) => LoginPage(), // slash / itself is a home entry
         // this is object new LoginPage() also works

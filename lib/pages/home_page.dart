@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/widgets/drawer.dart';
+// * ctrl + dot to import the package 
 
 class HomePage extends StatelessWidget {
   final days = 30;
@@ -8,7 +10,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text("Catalog App",
+        style: TextStyle(color: Colors.black)),
       ),
       // Scaffold is top level container for material app
       body: Center(
@@ -16,7 +22,7 @@ class HomePage extends StatelessWidget {
           child: Text("Welcome $name to the $days days of the flutter coding"),
         ),
       ),
-      drawer: Drawer(), // drawer is similar to footer
+      drawer: MyDrawer(), // drawer is similar to footer
     );
   }
 }
