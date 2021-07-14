@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   final name = "Kiran Khadka";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //* context is a reference to the location of a widget within the tree str of all widgets which are built and is stateless element
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       // Scaffold is top level container for material app
       body: Center(
         child: Container(
-          child: Text("Welcome $name to the $days days of the flutter coding"),
+          child: Text(context.runtimeType.toString()),
         ),
       ),
       drawer: MyDrawer(), // drawer is similar to footer

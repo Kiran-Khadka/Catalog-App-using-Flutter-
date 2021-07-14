@@ -30,10 +30,11 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 ////currentAccountPicture: Image.network(imageURL),
                 currentAccountPicture:
-                    CircleAvatar(backgroundImage: NetworkImage(imageURL)
-
-                        ///* Also AssetImage can be used here
-                        ),
+                    CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: NetworkImage(imageURL) ///* Also AssetImage can be used here
+                      ),
+                   //// currentAccountPicture: Image.network(imageURL, width: 50, height: 50,)),
               ),
             ),
             Divider(
