@@ -64,17 +64,35 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final item = CatalogModel.items[index];
                   return Card(
-                      clipBehavior: Clip.antiAlias, // for clipping and shaping distinction on the edge
+                      clipBehavior: Clip
+                          .antiAlias, // for clipping and shaping distinction on the edge
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: GridTile(
-                        header: Text(item.name),
+                        header: Container(
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ), // item.name is wrapped with Container
+                          padding: const EdgeInsets.all(12), // constant indicates that compiler need not re-compile next time when reloading
+                          decoration: BoxDecoration(
+                            color: Colors.deepOrange,
+                          ),
+                        ),
                         child: Image.network(item.image),
-                        footer: Text(item.price.toString()),
+                        footer: Container(
+                          child: Text(
+                           item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ), 
+                          padding: const EdgeInsets.all(12), // constant indicates that compiler need not re-compile next time when reloading
+                          decoration: BoxDecoration(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
                         
-                        )
-                        );
+                      ));
                 },
                 itemCount: CatalogModel.items.length,
               )
