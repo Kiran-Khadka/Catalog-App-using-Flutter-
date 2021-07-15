@@ -12,6 +12,7 @@ import 'dart:convert';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
+  
 }
 
 class _HomePageState extends State<HomePage> {
@@ -24,13 +25,18 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     loadData();
   }
+ 
+ 
+
 
   // loading the data
   loadData() async {
     // extracting the data from json file
-    var catalogJson = await rootBundle.loadString(
+
+    await Future.delayed(Duration(seconds: 2));
+    final catalogJson = await rootBundle.loadString(
         "assets/files/catalog.json"); // to extract the json files which gives the string value and so for json mapping decoding is done in line below
-    var decodedData = jsonDecode(catalogJson);
+    final decodedData = jsonDecode(catalogJson);
     var productsData =
         decodedData["products"]; // taking products oonly from the decoded data
     ////List<Item> list = List.from(productsData)
@@ -52,14 +58,22 @@ class _HomePageState extends State<HomePage> {
         title: Text("Catalog App"),
       ),
       // Scaffold is top level container for material app
-      body: ListView.builder(
-          itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              ////item: CatalogModel.items[index],
-              item: CatalogModel.items[index],
-            ); // this returns the ItemWidget class from item_widget.dart
-          }),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                ////ListView.builder(
+                itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) {
+                  return ItemWidget(
+                    ////item: CatalogModel.items[index],
+                    item: CatalogModel.items[index],
+                  ); // this returns the ItemWidget class from item_widget.dart
+                })
+     : Center(
+                child: LinearProgressIndicator(backgroundColor: Colors.black),
+              ),
+      ),
       drawer: MyDrawer(), // drawer is similar to footer
     );
   }
