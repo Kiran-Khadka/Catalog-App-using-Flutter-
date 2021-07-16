@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:second_app/models/catalog.dart';
 import 'package:second_app/widgets/drawer.dart';
+import 'package:second_app/widgets/homepage_widgets/catalog_header.dart';
+import 'package:second_app/widgets/homepage_widgets/catalog_list.dart';
 import 'package:second_app/widgets/themes.dart';
 import 'dart:convert';
-import 'package:velocity_x/velocity_x.dart'; // from mtechviral for building minimal UI
+import 'package:velocity_x/velocity_x.dart';
+
+ // from mtechviral for building minimal UI
 //* ctrl + dot to import the package
 //* In stateless widget the variable can be declared and all the work can
 // can be done inside the build method
@@ -60,11 +64,11 @@ class _HomePageState extends State<HomePage> {
               children: [
                 CatalogHeader(), // invokd CatalogHeader() class widget
                 if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-                  CatalogList().expand() // expanding the CatalogList
+                  CatalogList().py16().expand() // expanding the CatalogList
                 else
-                  Center(
-                    child: CircularProgressIndicator(),
-                  )
+
+                    CircularProgressIndicator().centered().py16().expand(), //py16 means padding in y axis
+          
               ],
             )),
       ),
@@ -73,110 +77,9 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// header Catalog Header
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Catalog App"
-            .text
-            .xl5
-            .bold
-            .color(MyTheme.darkBluishColor)
-            .make(), //xl5 is textscalefactor
-        "Trending Products".text.xl2.make(),
-      ],
-    );
-  }
-}
 
-// class CatalogList widget
-class CatalogList extends StatelessWidget {
-  const CatalogList({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: CatalogModel.items.length,
-      itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return CatalogItem(catalog: catalog);
-      },
-    );
-  }
-}
 
-// Class catalogItem
-class CatalogItem extends StatelessWidget {
-  final Item catalog;
 
-  const CatalogItem({Key? key, required this.catalog})
-      : assert(catalog != null),
-        super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-      child: Row(
-        children: [
-          CatalogImage(
-            image: catalog
-                .image, // final Item catalog is passed here as catalog.image
-          ),
-          ////Image.network(catalog.image).box.color(MyTheme.kCreamColor).make()
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
-                catalog.desc.text.make(),
-                HeightBox(10), // 10.heightBox in velocity_x Style
-                ButtonBar(
-                  alignment: MainAxisAlignment.spaceBetween,
-                  buttonPadding: EdgeInsets.zero,
-                  children: [
-                    "\$${catalog.price}".text.bold.xl2.make(),
-                    ElevatedButton(onPressed: () {}, 
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor,), // whether the button is clicked or not property is to be remain
-                      shape: MaterialStateProperty.all(StadiumBorder())
-                    ) ,
-
-                    child: "Buy".text.make()),
-                  ],
-                ).pOnly(right: 8.0)// padding for button bar using Vx package
-              ],
-            ),
-          )
-        ],
-      ),
-    )
-        .white
-        .rounded
-        .p8
-        .square(150)
-        .make()
-        .py16()
-        .w40(context); // VxBox is similar to container
-  }
-}
-
-// passing the Image string here
-class CatalogImage extends StatelessWidget {
-  final String image;
-
-  const CatalogImage({Key? key, required this.image}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Image.network(
-      image, // passing image from final String image declared
-    ).box.rounded.p8.color(MyTheme.kCreamColor).make().p16().w40(context);
-  }
-}
