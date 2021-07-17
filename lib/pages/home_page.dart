@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:second_app/models/catalog.dart';
+import 'package:second_app/utils/routes.dart';
 import 'package:second_app/widgets/drawer.dart';
 import 'package:second_app/widgets/homepage_widgets/catalog_header.dart';
 import 'package:second_app/widgets/homepage_widgets/catalog_list.dart';
@@ -8,7 +10,7 @@ import 'package:second_app/widgets/themes.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 
- // from mtechviral for building minimal UI
+// from mtechviral for building minimal UI
 //* ctrl + dot to import the package
 //* In stateless widget the variable can be declared and all the work can
 // can be done inside the build method
@@ -56,6 +58,12 @@ class _HomePageState extends State<HomePage> {
     ////final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
       backgroundColor: MyTheme.kCreamColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context,
+            MyRoutes.cartRoute), // send to Cart Page when cart icon is clicked
+        //backgroundColor: MyTheme.darkBluishColor,
+        child: Icon(CupertinoIcons.cart),
+      ), // floating action button
       body: SafeArea(
         child: Container(
             // Container later wrapped with Safe Area
@@ -66,9 +74,10 @@ class _HomePageState extends State<HomePage> {
                 if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
                   CatalogList().py16().expand() // expanding the CatalogList
                 else
-
-                    CircularProgressIndicator().centered().py16().expand(), //py16 means padding in y axis
-          
+                  CircularProgressIndicator()
+                      .centered()
+                      .py16()
+                      .expand(), //py16 means padding in y axis
               ],
             )),
       ),
@@ -76,10 +85,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-
-
-

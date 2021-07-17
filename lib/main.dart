@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/pages/cart_page.dart';
 import 'package:second_app/pages/home_details_page.dart';
 import 'package:second_app/pages/home_page.dart';
 import 'package:second_app/pages/login_page.dart';
@@ -28,15 +29,16 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.homeRoute, // initial route
       //"/login", // home is opened instead of loginpage due to use of initialRoute
       routes: {
         "/": (context) => LoginPage(), // slash / itself is a home entry
         // this is object new LoginPage() also works
         // "/home": (context) => HomePage(),
-        
+
         MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage()
+        MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage()
       },
     );
   }

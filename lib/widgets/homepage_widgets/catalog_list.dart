@@ -43,7 +43,8 @@ class CatalogItem extends StatelessWidget {
         children: [
           Hero(
             tag: Key(catalog.id.toString()),
-            child: CatalogImage( // wrapped with Hero widget
+            child: CatalogImage(
+              // wrapped with Hero widget
               image: catalog
                   .image, // final Item catalog is passed here as catalog.image
             ),
@@ -59,7 +60,7 @@ class CatalogItem extends StatelessWidget {
                 HeightBox(10), // 10.heightBox in velocity_x Style
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
-                  buttonPadding: EdgeInsets.zero,
+                  buttonPadding: EdgeInsets.zero, // padding for button
                   children: [
                     "\$${catalog.price}".text.bold.xl2.make(),
                     ElevatedButton(
@@ -71,7 +72,8 @@ class CatalogItem extends StatelessWidget {
                             shape: MaterialStateProperty.all(StadiumBorder())),
                         child: "Buy".text.make()),
                   ],
-                ).pOnly(right: 8.0) // padding for button bar using Vx package
+                ).pOnly(right: 8.0)
+                // padding for button bar using Vx package
               ],
             ),
           )
@@ -84,6 +86,7 @@ class CatalogItem extends StatelessWidget {
         .square(150)
         .make()
         .py16()
-        .w40(context); // VxBox is similar to container
+        .w32(context); // 32% width of the mediaquery width
+    // VxBox is similar to container
   }
 }
