@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: HomePage(), is commented because the routes with homeentry is being made// class is called not the function
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       initialRoute: MyRoutes.homeRoute, // initial route

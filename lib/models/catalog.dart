@@ -1,10 +1,7 @@
 import 'dart:convert';
 
-
 class CatalogModel {
-    
-
-  static late List<Item> items; 
+  static late List<Item> items;
   /*[  // CatalogModel is list items
    
 
@@ -19,6 +16,13 @@ class CatalogModel {
 ) 
 
 ]; */
+
+// Get Item by ID
+  static Item getByID(int id) => items.firstWhere((element) => element.id == id,
+      orElse: null); // for item id getting and checking the value
+
+// Get Item by Position
+  static Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
@@ -37,9 +41,6 @@ class Item {
     required this.color,
     required this.image,
   });
-  
-  // decoding the json file
- 
 
   // generated with dart data class generator for Item class
 
@@ -95,23 +96,23 @@ class Item {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Item &&
-      other.id == id &&
-      other.name == name &&
-      other.desc == desc &&
-      other.price == price &&
-      other.color == color &&
-      other.image == image;
+        other.id == id &&
+        other.name == name &&
+        other.desc == desc &&
+        other.price == price &&
+        other.color == color &&
+        other.image == image;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      name.hashCode ^
-      desc.hashCode ^
-      price.hashCode ^
-      color.hashCode ^
-      image.hashCode;
+        name.hashCode ^
+        desc.hashCode ^
+        price.hashCode ^
+        color.hashCode ^
+        image.hashCode;
   }
 }

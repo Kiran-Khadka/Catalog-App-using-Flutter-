@@ -75,7 +75,7 @@ class HomeDetailPage extends StatelessWidget {
                   ).py64(),
                 ),
               ),
-            ))
+            )),
           ],
         ).p16(),
       ),
