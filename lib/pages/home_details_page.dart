@@ -16,9 +16,11 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.kCreamColor,
+      ////backgroundColor: MyTheme.kCreamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        ////color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           // wrapped with Container
           alignment: MainAxisAlignment.spaceBetween,
@@ -29,8 +31,9 @@ class HomeDetailPage extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          MyTheme.darkBluishColor,
-                        ), // whether the button is clicked or not property is to be remain
+                            //MyTheme.darkBluishColor,
+                            context.theme
+                                .buttonColor), // whether the button is clicked or not property is to be remain
                         shape: MaterialStateProperty.all(StadiumBorder())),
                     child: "Add to Cart".text.xl.make())
                 .wh(130, 50), // wh means weight and height of button buy
@@ -52,7 +55,8 @@ class HomeDetailPage extends StatelessWidget {
               arcType: VxArcType.CONVEY,
               child: Container(
                 // container wrapped with VxArc
-                color: Colors.white,
+                ////color: Colors.white,
+                color: context.cardColor,
                 width: context.screenWidth,
                 child: SingleChildScrollView(
                   child: Column(

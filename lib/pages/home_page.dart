@@ -57,12 +57,18 @@ class _HomePageState extends State<HomePage> {
     //* context is a reference to the location of a widget within the tree str of all widgets which are built and is stateless element
     ////final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
-      backgroundColor: MyTheme.kCreamColor,
+      /////backgroundColor: MyTheme.kCreamColor,
+      backgroundColor: context.cardColor,
+      ////backgroundColor: Theme.of(context).cardColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context,
             MyRoutes.cartRoute), // send to Cart Page when cart icon is clicked
-        //backgroundColor: MyTheme.darkBluishColor,
-        child: Icon(CupertinoIcons.cart),
+        backgroundColor: context
+            .theme.buttonColor, // using Vx color of button from themes.dart
+        child: Icon(
+          CupertinoIcons.cart,
+          color: Colors.white,
+        ),
       ), // floating action button
       body: SafeArea(
         child: Container(

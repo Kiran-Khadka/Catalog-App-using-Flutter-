@@ -55,7 +55,10 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
+                catalog.name.text.lg
+                    .color(
+                        context.accentColor) /*(MyTheme.darkBluishColor)*/ .bold
+                    .make(),
                 catalog.desc.text.make(),
                 HeightBox(10), // 10.heightBox in velocity_x Style
                 ButtonBar(
@@ -70,7 +73,7 @@ class CatalogItem extends StatelessWidget {
                               MyTheme.darkBluishColor,
                             ), // whether the button is clicked or not property is to be remain
                             shape: MaterialStateProperty.all(StadiumBorder())),
-                        child: "Buy".text.make()),
+                        child: "Add to".text.make()),
                   ],
                 ).pOnly(right: 8.0)
                 // padding for button bar using Vx package
@@ -80,7 +83,7 @@ class CatalogItem extends StatelessWidget {
         ],
       ),
     )
-        .white
+        .color(context.cardColor) // color of the VxBox
         .rounded
         .p8
         .square(150)

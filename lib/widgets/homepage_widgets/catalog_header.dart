@@ -15,7 +15,8 @@ class CatalogHeader extends StatelessWidget {
             .text
             .xl5
             .bold
-            .color(MyTheme.darkBluishColor)
+            //// .color(MyTheme.darkBluishColor)
+            .color(context.theme.accentColor)
             .make(), //xl5 is textscalefactor
         "Trending Products".text.xl2.make(),
       ],
