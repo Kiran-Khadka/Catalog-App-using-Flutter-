@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   // const pi = 3.14; // constant value cannot be modified or changed
   // final      // final can be modified
   // widget is a kind of component
-  // function is outside of class whereas method is the fu~nction inside class
+  // function is outside of class whereas method is the function inside class
 
   @override // completion of the task
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: HomePage(), is commented because the routes with homeentry is being made// class is called not the function
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: MyRoutes.homeRoute, // initial route
+      initialRoute: MyRoutes.cartRoute, // initial route
       //"/login", // home is opened instead of loginpage due to use of initialRoute
       routes: {
         "/": (context) => LoginPage(), // slash / itself is a home entry

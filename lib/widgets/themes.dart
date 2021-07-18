@@ -30,7 +30,7 @@ class MyTheme {
         appBarTheme: AppBarTheme(
           color: Colors.black,
           elevation: 0.0,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color: Colors.black),
           textTheme: Theme.of(context).textTheme,
         ),
       );
