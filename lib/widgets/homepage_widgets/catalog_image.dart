@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:second_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 // passing the Image string here

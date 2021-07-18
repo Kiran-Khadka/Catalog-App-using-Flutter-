@@ -6,11 +6,10 @@ import 'package:second_app/utils/routes.dart';
 import 'package:second_app/widgets/drawer.dart';
 import 'package:second_app/widgets/homepage_widgets/catalog_header.dart';
 import 'package:second_app/widgets/homepage_widgets/catalog_list.dart';
-import 'package:second_app/widgets/themes.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 
-// from mtechviral for building minimal UI
+
 //* ctrl + dot to import the package
 //* In stateless widget the variable can be declared and all the work can
 // can be done inside the build method
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
 
   // loading the data
   loadData() async {
-    // extracting the d ata from json file
+    // extracting the data from json file
 
     //await Future.delayed(Duration(seconds: 2));
     final catalogJson = await rootBundle.loadString(

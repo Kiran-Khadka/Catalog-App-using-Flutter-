@@ -73,7 +73,7 @@ class CatalogItem extends StatelessWidget {
                               MyTheme.darkBluishColor,
                             ), // whether the button is clicked or not property is to be remain
                             shape: MaterialStateProperty.all(StadiumBorder())),
-                        child: "Add to".text.make()),
+                        child: "Buy".text.make()),
                   ],
                 ).pOnly(right: 8.0)
                 // padding for button bar using Vx package
